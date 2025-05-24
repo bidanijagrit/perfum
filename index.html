@@ -15,14 +15,14 @@
     gtag('config', 'G-XXXXXXXXXX');
   </script>
   <!-- End Google Analytics -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Montserrat', sans-serif;
     }
     body {
       background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
@@ -105,18 +105,20 @@
       margin-bottom: 30px;
     }
     .brand-header h1 {
-      font-size: 3.5rem;
+      font-size: 3.2rem;
       color: #ffe27a;
       font-family: 'Playfair Display', serif;
       letter-spacing: 0.15em;
       text-shadow: 0 2px 15px rgba(255,226,122,0.2);
       margin-bottom: 15px;
+      font-weight: 700;
     }
     .brand-header p {
       font-size: 1.4rem;
       color: #e0e0e0;
       letter-spacing: 0.1em;
       font-style: italic;
+      font-weight: 500;
     }
     .content {
       padding: 20px;
@@ -157,20 +159,42 @@
     .product:hover img {
       transform: scale(1.05);
     }
+    .product h3 {
+      color: #ffe27a;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .product p {
+      color: #e0e0e0;
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+    .product p:nth-child(4) {
+      color: #ffd700;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
     .order-button {
       background: linear-gradient(45deg, #ffe27a, #ffd700);
       color: #1a1a1a;
       border: none;
       padding: 14px 28px;
-      font-size: 1rem;
+      font-size: 1.1rem;
       border-radius: 10px;
       cursor: pointer;
-      font-weight: 600;
+      font-weight: 700;
       transition: all 0.3s;
       text-decoration: none;
       display: inline-block;
       text-align: center;
       letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
     .order-button:hover {
       background: linear-gradient(45deg, #ffd700, #ffe27a);
@@ -261,9 +285,10 @@
     }
     .contact a {
       color: #ffe27a;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       text-decoration: none;
       transition: color 0.3s;
+      font-weight: 600;
     }
     .contact a:hover {
       color: #ffd700;
@@ -292,6 +317,19 @@
       }
       .product {
         max-width: 90%;
+      }
+      .product h3 {
+        font-size: 1.6rem;
+      }
+      .product p {
+        font-size: 1rem;
+      }
+      .product p:nth-child(4) {
+        font-size: 1.4rem;
+      }
+      .order-button {
+        font-size: 1rem;
+        padding: 12px 24px;
       }
       .floating-whatsapp, .back-to-top {
         width: 50px;
@@ -908,12 +946,10 @@
     /* Mobile Responsive Styles */
     @media (max-width: 768px) {
       .brand-header h1 {
-        font-size: 2rem;
-        padding: 0 15px;
+        font-size: 2.5rem;
       }
       .brand-header p {
-        font-size: 1rem;
-        padding: 0 15px;
+        font-size: 1.2rem;
       }
       .product {
         max-width: 100%;
@@ -921,16 +957,19 @@
         padding: 15px;
       }
       .product h3 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
       }
       .product p {
-        font-size: 0.9rem;
+        font-size: 1rem;
+      }
+      .product p:nth-child(4) {
+        font-size: 1.4rem;
       }
       .order-button, .payment-button {
         width: 100%;
         margin: 10px 0;
-        padding: 12px 20px;
-        font-size: 0.9rem;
+        padding: 12px 24px;
+        font-size: 1rem;
       }
       .filter-options {
         flex-direction: column;
@@ -939,10 +978,10 @@
       .filter-button {
         width: 100%;
         padding: 10px;
-        font-size: 0.9rem;
+        font-size: 0.95rem;
       }
       .search-input {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         padding: 12px 15px;
       }
       .features-container, .steps-container {
@@ -994,10 +1033,10 @@
         padding: 12px;
       }
       .faq-question h3 {
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
       .faq-answer p {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
       }
       .contact a {
         font-size: 1.1rem;
@@ -1040,36 +1079,7 @@
       <h3 style="color: #ffe27a; font-size: 1.8rem; margin-bottom: 10px; font-family: 'Playfair Display', serif;">Armani</h3>
       <p style="color: #e0e0e0; margin-bottom: 15px;">Sweet and fruity fragrance</p>
       <p style="color: #ffd700; font-size: 1.4rem; font-weight: 600; margin-bottom: 20px;">₹299</p>
-      <a href="upi://pay?pa=9034075510@fam&pn=Gulvaria&am=299&cu=INR&tn=Payment%20for%20Armani%20-%20Gulvaria%20Perfumes" class="payment-button">Pay ₹299</a>
       <a href="https://wa.me/919034075510" target="_blank" class="order-button">Order Now</a>
-      
-      <div class="product-experience">
-        <h3 style="color: #ffe27a; margin-bottom: 15px;">Experience Armani</h3>
-        <div class="fragrance-notes">
-          <span class="note">Bergamot</span>
-          <span class="note">Lavender</span>
-          <span class="note">Amber</span>
-          <span class="note">Vanilla</span>
-        </div>
-        <div class="mood-board">
-          <div class="mood-item">
-            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f" alt="Elegant">
-          </div>
-          <div class="mood-item">
-            <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f" alt="Sophisticated">
-          </div>
-          <div class="mood-item">
-            <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353" alt="Luxury">
-          </div>
-          <div class="mood-item">
-            <img src="https://images.unsplash.com/photo-1490367532201-b9bc1dc483f6" alt="Confident">
-          </div>
-        </div>
-        <p class="product-story">
-          "A sophisticated blend of citrus and floral notes, perfect for the modern individual who appreciates timeless elegance."
-        </p>
-        <button class="view-3d" onclick="view3D('Armani')">View in 3D</button>
-      </div>
     </div>
 
     <div class="product">
@@ -1078,7 +1088,6 @@
       <h3 style="color: #ffe27a; font-size: 1.8rem; margin-bottom: 10px; font-family: 'Playfair Display', serif;">Signature</h3>
       <p style="color: #e0e0e0; margin-bottom: 15px;">Strong and hard-hitting fragrance</p>
       <p style="color: #ffd700; font-size: 1.4rem; font-weight: 600; margin-bottom: 20px;">₹299</p>
-      <a href="upi://pay?pa=9034075510@fam&pn=Gulvaria&am=299&cu=INR&tn=Payment%20for%20Signature%20-%20Gulvaria%20Perfumes" class="payment-button">Pay ₹299</a>
       <a href="https://wa.me/919034075510" target="_blank" class="order-button">Order Now</a>
     </div>
 
@@ -1088,7 +1097,6 @@
       <h3 style="color: #ffe27a; font-size: 1.8rem; margin-bottom: 10px; font-family: 'Playfair Display', serif;">Black Heart</h3>
       <p style="color: #e0e0e0; margin-bottom: 15px;">Sweet as well as hard fragrance</p>
       <p style="color: #ffd700; font-size: 1.4rem; font-weight: 600; margin-bottom: 20px;">₹299</p>
-      <a href="upi://pay?pa=9034075510@fam&pn=Gulvaria&am=299&cu=INR&tn=Payment%20for%20Black%20Heart%20-%20Gulvaria%20Perfumes" class="payment-button">Pay ₹299</a>
       <a href="https://wa.me/919034075510" target="_blank" class="order-button">Order Now</a>
     </div>
   </div>
@@ -1394,17 +1402,6 @@
       const url = window.location.href;
       window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`);
     }
-
-    // Add click event to products
-    document.querySelectorAll('.product').forEach(product => {
-      product.addEventListener('click', () => {
-        const title = product.querySelector('h3').textContent;
-        const image = product.querySelector('img').src;
-        const description = product.querySelector('p').textContent;
-        const price = product.querySelector('p:nth-child(4)').textContent;
-        showProductDetails(title, image, description, price);
-      });
-    });
 
     function view3D(productName) {
       // This function will be implemented when we add the 3D viewer
