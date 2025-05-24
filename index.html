@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gulvaria - Luxury Perfumes that define elegance and sophistication. Discover our premium collection of fragrances." />
+  <meta name="keywords" content="Gulvaria, luxury perfumes, premium fragrances, designer perfumes, Indian perfumes" />
+  <title>Gulvaria - Luxury Perfumes</title>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  <!-- End Google Analytics -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+      color: #fefefe;
+      background-image: 
+        linear-gradient(135deg, rgba(26, 26, 26, 0.97) 0%, rgba(44, 44, 44, 0.97) 100%),
+        url('https://www.transparenttextures.com/patterns/diamond-upholstery.png'),
+        url('https://www.transparenttextures.com/patterns/golden-pattern.png');
+      background-blend-mode: overlay;
+      position: relative;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(255,226,122,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .splash-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background: linear-gradient(135deg, #262626, #404040);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #ffe27a;
+      z-index: 9999;
+      animation: fadeOut 2.5s forwards;
+    }
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #ffe27a;
+      border-top: 5px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .splash-screen img {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 20px;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    .splash-screen h1 {
+      font-size: 4rem;
+      margin-bottom: 25px;
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 0.2em;
+      text-shadow: 0 2px 10px rgba(255,226,122,0.3);
+    }
+    .brand-header {
+      background: linear-gradient(to right, rgba(26, 26, 26, 0.95), rgba(44, 44, 44, 0.95));
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      border-bottom: 1px solid rgba(255,226,122,0.1);
+      margin-bottom: 30px;
+    }
+    .brand-header h1 {
+      font-size: 3.5rem;
+      color: #ffe27a;
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 0.15em;
+      text-shadow: 0 2px 15px rgba(255,226,122,0.2);
+      margin-bottom: 15px;
+    }
+    .brand-header p {
+      font-size: 1.4rem;
+      color: #e0e0e0;
+      letter-spacing: 0.1em;
+      font-style: italic;
+    }
+    .content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .product {
+      max-width: 400px;
+      width: 100%;
+      margin-bottom: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: slideUp 0.8s ease-out;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .product:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 36px rgba(255,226,122,0.2);
+    }
+    .product img {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      transition: transform 0.3s;
+    }
+    .product:hover img {
+      transform: scale(1.05);
+    }
+    .order-button {
+      background: linear-gradient(45deg, #ffe27a, #ffd700);
+      color: #1a1a1a;
+      border: none;
+      padding: 14px 28px;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+    .order-button:hover {
+      background: linear-gradient(45deg, #ffd700, #ffe27a);
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(255,226,122,0.4);
+    }
+    .social-section {
+      padding: 40px 20px;
+      text-align: center;
+      background: rgba(255,255,255,0.05);
+      border-top: 1px solid rgba(255,226,122,0.1);
+      border-bottom: 1px solid rgba(255,226,122,0.1);
+    }
+    .social-section h2 {
+      color: #ffe27a;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      letter-spacing: 0.1em;
+    }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .social-icons a {
+      color: #ffe27a;
+      font-size: 24px;
+      transition: all 0.3s;
+    }
+    .social-icons a:hover {
+      transform: scale(1.2);
+      color: #ffd700;
+    }
+    .testimonials, .about, .contact {
+      padding: 60px 30px;
+      text-align: center;
+    }
+    .testimonials h2, .about h2, .contact h2 {
+      color: #ffe27a;
+      margin-bottom: 20px;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      letter-spacing: 0.1em;
+    }
+    .testimonials .testimonial {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      max-width: 500px;
+      margin: 0 auto 20px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s;
+      animation: fadeIn 0.8s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .testimonial:hover {
+      transform: translateY(-5px);
+    }
+    .testimonial p {
+      font-style: italic;
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+    .testimonial span {
+      font-weight: 700;
+      color: #ffe27a;
+      letter-spacing: 0.05em;
+    }
+    .about, .contact {
+      background: rgba(38, 38, 38, 0.8);
+      color: #fefefe;
+      border-top: 1px solid rgba(255,226,122,0.1);
+      border-bottom: 1px solid rgba(255,226,122,0.1);
+    }
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+      font-size: 1.1rem;
+    }
+    .contact a {
+      color: #ffe27a;
+      font-size: 1.3rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .contact a:hover {
+      color: #ffd700;
+    }
+    footer {
+      background: rgba(26, 26, 26, 0.95);
+      color: #ffe27a;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      border-top: 1px solid rgba(255,226,122,0.1);
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+    @media (max-width: 768px) {
+      .splash-screen h1 {
+        font-size: 2.5rem;
+      }
+      .brand-header h1 {
+        font-size: 2.5rem;
+      }
+      .brand-header p {
+        font-size: 1.2rem;
+      }
+      .product {
+        max-width: 90%;
+      }
+      .floating-whatsapp, .back-to-top {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+      }
+    }
+    /* New Styles */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+      z-index: 1000;
+      transition: transform 0.3s;
+    }
+    .floating-whatsapp:hover {
+      transform: scale(1.1);
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      background: #ffe27a;
+      color: #1a1a1a;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 4px 15px rgba(255, 226, 122, 0.4);
+      z-index: 1000;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    .back-to-top:hover {
+      transform: scale(1.1);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #ffe27a;
+      color: #1a1a1a;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transform: rotate(15deg);
+    }
+
+    .newsletter-section {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 60px 20px;
+      text-align: center;
+      border-top: 1px solid rgba(255,226,122,0.1);
+    }
+
+    .newsletter-form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      gap: 10px;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 1rem;
+    }
+
+    .newsletter-form button {
+      padding: 15px 30px;
+      border: none;
+      border-radius: 10px;
+      background: #ffe27a;
+      color: #1a1a1a;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .newsletter-form button:hover {
+      transform: scale(1.05);
+    }
+
+    .steps-section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .steps-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .step {
+      flex: 1;
+      min-width: 250px;
+      max-width: 300px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .step i {
+      font-size: 2.5rem;
+      color: #ffe27a;
+      margin-bottom: 20px;
+    }
+
+    .faq-section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: rgba(255, 255, 255, 0.1);
+      margin-bottom: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-answer {
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+
+    .faq-item.active .faq-answer {
+      padding: 20px;
+      max-height: 1000px;
+    }
+
+    .why-choose-section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .features-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .feature {
+      flex: 1;
+      min-width: 250px;
+      max-width: 300px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .feature i {
+      font-size: 2.5rem;
+      color: #ffe27a;
+      margin-bottom: 20px;
+    }
+
+    .limited-offer {
+      background: linear-gradient(45deg, #ffe27a, #ffd700);
+      color: #1a1a1a;
+      padding: 20px;
+      text-align: center;
+      margin: 40px 0;
+      border-radius: 15px;
+      animation: pulse 2s infinite;
+    }
+
+    /* New Styles */
+    .product-details-popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-content {
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 600px;
+      width: 90%;
+      position: relative;
+      border: 1px solid #ffe27a;
+    }
+
+    .close-popup {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: #ffe27a;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .share-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .share-button {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffe27a;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: transform 0.3s;
+    }
+
+    .share-button:hover {
+      transform: scale(1.05);
+    }
+
+    .size-guide {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      margin-top: 20px;
+    }
+
+    .size-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    .size-table th, .size-table td {
+      padding: 10px;
+      border: 1px solid rgba(255, 226, 122, 0.2);
+      text-align: center;
+    }
+
+    .related-products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .rating {
+      color: #ffe27a;
+      font-size: 20px;
+      margin: 10px 0;
+    }
+
+    .gift-option {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .gift-option input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+    }
+
+    .recently-viewed {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      margin-top: 20px;
+    }
+
+    .payment-methods {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .payment-method {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px 20px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .shipping-info {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      margin-top: 20px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 15px;
+    }
+
+    .info-item {
+      text-align: center;
+    }
+
+    .info-item i {
+      font-size: 24px;
+      color: #ffe27a;
+      margin-bottom: 10px;
+    }
+
+    /* Size Guide and Payment Section Styles */
+    .size-guide {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      margin-top: 20px;
+    }
+    .size-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    .size-table th, .size-table td {
+      padding: 10px;
+      border: 1px solid rgba(255, 226, 122, 0.2);
+      text-align: center;
+    }
+    .payment-section {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      margin-top: 20px;
+    }
+    .payment-section h3 {
+      color: #ffe27a;
+      margin-bottom: 15px;
+    }
+    .payment-button {
+      background: linear-gradient(45deg, #ffe27a, #ffd700);
+      color: #1a1a1a;
+      border: none;
+      padding: 14px 28px;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      letter-spacing: 0.05em;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    .payment-button:hover {
+      background: linear-gradient(45deg, #ffd700, #ffe27a);
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(255,226,122,0.4);
+    }
+    .upi-details {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    .upi-details i {
+      font-size: 24px;
+      color: #ffe27a;
+    }
+    .upi-id {
+      color: #ffe27a;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    .payment-instructions {
+      color: #e0e0e0;
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+
+    .product-experience {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+      padding: 20px;
+      z-index: 2;
+    }
+
+    .product:hover .product-experience {
+      opacity: 1;
+    }
+
+    .fragrance-notes {
+      display: flex;
+      gap: 15px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .note {
+      background: rgba(255, 226, 122, 0.1);
+      padding: 8px 15px;
+      border-radius: 20px;
+      border: 1px solid #ffe27a;
+      color: #ffe27a;
+      font-size: 0.9rem;
+      transition: transform 0.3s;
+    }
+
+    .note:hover {
+      transform: scale(1.1);
+    }
+
+    .mood-board {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .mood-item {
+      width: 100%;
+      height: 80px;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .mood-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .mood-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .product-story {
+      text-align: center;
+      margin: 20px 0;
+      font-style: italic;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+
+    .view-3d {
+      background: linear-gradient(45deg, #ffe27a, #ffd700);
+      color: #1a1a1a;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s;
+      margin-top: 15px;
+    }
+
+    .view-3d:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(255,226,122,0.4);
+    }
+
+    .search-filter {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 30px;
+      border-radius: 20px;
+      margin: 40px 0;
+      border: 1px solid rgba(255, 226, 122, 0.3);
+    }
+
+    .search-box {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 15px 20px;
+      padding-left: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 226, 122, 0.3);
+      border-radius: 30px;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #ffe27a;
+    }
+
+    .filter-options {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .filter-button {
+      padding: 8px 15px;
+      background: rgba(255, 226, 122, 0.1);
+      border: 1px solid #ffe27a;
+      border-radius: 20px;
+      color: #ffe27a;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .filter-button:hover,
+    .filter-button.active {
+      background: #ffe27a;
+      color: #1a1a1a;
+    }
+
+    .product-info {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      border-radius: 15px;
+      margin-top: 20px;
+      border: 1px solid rgba(255, 226, 122, 0.3);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 15px;
+    }
+
+    .info-item {
+      padding: 15px;
+      background: rgba(255, 226, 122, 0.1);
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .info-icon {
+      font-size: 1.5rem;
+      color: #ffe27a;
+      margin-bottom: 10px;
+    }
+
+    .info-title {
+      color: #ffe27a;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .info-text {
+      color: #e0e0e0;
+      font-size: 0.9rem;
+    }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+      .brand-header h1 {
+        font-size: 2rem;
+        padding: 0 15px;
+      }
+      .brand-header p {
+        font-size: 1rem;
+        padding: 0 15px;
+      }
+      .product {
+        max-width: 100%;
+        margin: 15px;
+        padding: 15px;
+      }
+      .product h3 {
+        font-size: 1.5rem;
+      }
+      .product p {
+        font-size: 0.9rem;
+      }
+      .order-button, .payment-button {
+        width: 100%;
+        margin: 10px 0;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+      }
+      .filter-options {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .filter-button {
+        width: 100%;
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+      .search-input {
+        font-size: 0.9rem;
+        padding: 12px 15px;
+      }
+      .features-container, .steps-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .feature, .step {
+        width: 100%;
+        margin: 0;
+        padding: 20px;
+      }
+      .social-section h2, .testimonials h2, .about h2, .contact h2 {
+        font-size: 1.8rem;
+        padding: 0 15px;
+      }
+      .floating-whatsapp {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        bottom: 20px;
+        right: 20px;
+      }
+      .back-to-top {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+        bottom: 20px;
+        left: 20px;
+      }
+      .popup-content {
+        width: 95%;
+        padding: 15px;
+        margin: 10px;
+      }
+      .share-buttons {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .share-button {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+      }
+      .info-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+      .info-item {
+        padding: 12px;
+      }
+      .faq-question h3 {
+        font-size: 1rem;
+      }
+      .faq-answer p {
+        font-size: 0.9rem;
+      }
+      .contact a {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="splash-screen" id="splash">
+    <div class="loading-spinner"></div>
+    <img src="https://i.postimg.cc/FzFN3pZc/Screenshot-2025-0430-144545.jpg" alt="Gulvaria Logo">
+    <h1>Gulvaria</h1>
+  </div>
+
+  <div class="brand-header">
+    <h1>Gulvaria</h1>
+    <p>Not Just a Perfume, An Aura</p>
+  </div>
+
+  <div class="content">
+    <div class="search-filter">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" class="search-input" placeholder="Search perfumes..." onkeyup="filterProducts()">
+      </div>
+      <div class="filter-options">
+        <button class="filter-button active" onclick="filterByType('all')">All</button>
+        <button class="filter-button" onclick="filterByType('sweet')">Sweet</button>
+        <button class="filter-button" onclick="filterByType('fruity')">Fruity</button>
+        <button class="filter-button" onclick="filterByType('floral')">Floral</button>
+        <button class="filter-button" onclick="filterByPrice('under300')">Under ₹300</button>
+        <button class="filter-button" onclick="filterByOccasion('casual')">Casual</button>
+        <button class="filter-button" onclick="filterByOccasion('formal')">Formal</button>
+      </div>
+    </div>
+
+    <div class="product">
+      <span class="product-badge">Best Seller</span>
+      <img src="https://i.postimg.cc/7h9f0frs/Screenshot-2025-0430-145551.jpg" alt="Gulvaria Perfume">
+      <h3 style="color: #ffe27a; font-size: 1.8rem; margin-bottom: 10px; font-family: 'Playfair Display', serif;">Armani</h3>
+      <p style="color: #e0e0e0; margin-bottom: 15px;">Sweet and fruity fragrance</p>
+      <p style="color: #ffd700; font-size: 1.4rem; font-weight: 600; margin-bottom: 20px;">₹299</p>
+      <a href="upi://pay?pa=9034075510@fam&pn=Gulvaria&am=299&cu=INR&tn=Payment%20for%20Armani%20-%20Gulvaria%20Perfumes" class="payment-button">Pay ₹299</a>
+      <a href="https://wa.me/919034075510" target="_blank" class="order-button">Order Now</a>
+      
+      <div class="product-experience">
+        <h3 style="color: #ffe27a; margin-bottom: 15px;">Experience Armani</h3>
+        <div class="fragrance-notes">
+          <span class="note">Bergamot</span>
+          <span class="note">Lavender</span>
+          <span class="note">Amber</span>
+          <span class="note">Vanilla</span>
+        </div>
+        <div class="mood-board">
+          <div class="mood-item">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f" alt="Elegant">
+          </div>
+          <div class="mood-item">
+            <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f" alt="Sophisticated">
+          </div>
+          <div class="mood-item">
+            <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353" alt="Luxury">
+          </div>
+          <div class="mood-item">
+            <img src="https://images.unsplash.com/photo-1490367532201-b9bc1dc483f6" alt="Confident">
+          </div>
+        </div>
+        <p class="product-story">
+          "A sophisticated blend of citrus and floral notes, perfect for the modern individual who appreciates timeless elegance."
+        </p>
+        <button class="view-3d" onclick="view3D('Armani')">View in 3D</button>
+      </div>
+    </div>
+
+    <div class="product">
+      <span class="product-badge">New Arrival</span>
+      <img src="https://i.postimg.cc/yYQF1smF/Screenshot-2025-0501-161418.jpg" alt="New Perfume Image">
+      <h3 style="color: #ffe27a; font-size: 1.8rem; margin-bottom: 10px; font-family: 'Playfair Display', serif;">Signature</h3>
+      <p style="color: #e0e0e0; margin-bottom: 15px;">Strong and hard-hitting fragrance</p>
+      <p style="color: #ffd700; font-size: 1.4rem; font-weight: 600; margin-bottom: 20px;">₹299</p>
+      <a href="upi://pay?pa=9034075510@fam&pn=Gulvaria&am=299&cu=INR&tn=Payment%20for%20Signature%20-%20Gulvaria%20Perfumes" class="payment-button">Pay ₹299</a>
+      <a href="https://wa.me/919034075510" target="_blank" class="order-button">Order Now</a>
+    </div>
+
+    <div class="product">
+      <span class="product-badge">Limited Edition</span>
+      <img src="https://i.postimg.cc/0yBBzdMf/Screenshot-2025-0501-224905.jpg" alt="New Perfume Image">
+      <h3 style="color: #ffe27a; font-size: 1.8rem; margin-bottom: 10px; font-family: 'Playfair Display', serif;">Black Heart</h3>
+      <p style="color: #e0e0e0; margin-bottom: 15px;">Sweet as well as hard fragrance</p>
+      <p style="color: #ffd700; font-size: 1.4rem; font-weight: 600; margin-bottom: 20px;">₹299</p>
+      <a href="upi://pay?pa=9034075510@fam&pn=Gulvaria&am=299&cu=INR&tn=Payment%20for%20Black%20Heart%20-%20Gulvaria%20Perfumes" class="payment-button">Pay ₹299</a>
+      <a href="https://wa.me/919034075510" target="_blank" class="order-button">Order Now</a>
+    </div>
+  </div>
+
+  <div class="limited-offer">
+    <h2>Special Offer!</h2>
+    <p>Get 20% off on your first order. Use code: WELCOME20</p>
+  </div>
+
+  <section class="why-choose-section">
+    <h2>Why Choose Gulvaria</h2>
+    <div class="features-container">
+      <div class="feature">
+        <i class="fas fa-gem"></i>
+        <h3>Premium Quality</h3>
+        <p>Only the finest ingredients used in our perfumes</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-truck"></i>
+        <h3>Fast Delivery</h3>
+        <p>Quick and secure delivery across India</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-headset"></i>
+        <h3>24/7 Support</h3>
+        <p>Always here to help you</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="steps-section">
+    <h2>How to Order</h2>
+    <div class="steps-container">
+      <div class="step">
+        <i class="fas fa-shopping-cart"></i>
+        <h3>Choose Your Perfume</h3>
+        <p>Browse our collection and select your favorite fragrance</p>
+      </div>
+      <div class="step">
+        <i class="fab fa-whatsapp"></i>
+        <h3>Contact Us</h3>
+        <p>Send us a message on WhatsApp with your choice</p>
+      </div>
+      <div class="step">
+        <i class="fas fa-box"></i>
+        <h3>Get Delivery</h3>
+        <p>Receive your perfume at your doorstep</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="shipping-info">
+    <h2>Shipping Information</h2>
+    <div class="info-grid">
+      <div class="info-item">
+        <i class="fas fa-truck"></i>
+        <h3>Fast Delivery</h3>
+        <p>2-3 business days</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-box"></i>
+        <h3>Secure Packaging</h3>
+        <p>Bubble wrapped</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>Nationwide</h3>
+        <p>All over India</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="return-policy">
+    <h2>Return Policy</h2>
+    <div class="info-grid">
+      <div class="info-item">
+        <i class="fas fa-undo"></i>
+        <h3>7 Days Return</h3>
+        <p>Easy returns</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-shield-alt"></i>
+        <h3>100% Secure</h3>
+        <p>Safe transactions</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-headset"></i>
+        <h3>24/7 Support</h3>
+        <p>Always available</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="product-info">
+    <h3 style="color: #ffe27a; margin-bottom: 15px;">Product Information</h3>
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="info-icon">⏱️</div>
+        <div class="info-title">Longevity</div>
+        <div class="info-text">4-6 hours</div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">🌡️</div>
+        <div class="info-title">Best Time to Wear</div>
+        <div class="info-text">Day & Evening</div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">🎯</div>
+        <div class="info-title">Occasion</div>
+        <div class="info-text">Casual & Formal</div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">🧪</div>
+        <div class="info-title">Ingredients</div>
+        <div class="info-text">Natural & Synthetic</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>How long does delivery take?</h3>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Delivery typically takes 2-3 business days within major cities.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>What payment methods do you accept?</h3>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>We accept UPI, Google Pay, PhonePe, and bank transfers.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Do you offer international shipping?</h3>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Currently, we only ship within India.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="social-section">
+    <h2>Follow Us</h2>
+    <div class="social-icons">
+      <a href="https://instagram.com/gulvaria.in" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <p>Have questions? Reach out anytime:</p>
+    <a href="mailto:gulvaria.in@gmail.com">gulvaria.in@gmail.com</a>
+  </section>
+
+  <a href="https://wa.me/919034075510" class="floating-whatsapp" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <div class="product-details-popup" id="productPopup">
+    <div class="popup-content">
+      <span class="close-popup" onclick="closePopup()">&times;</span>
+      <h2 id="popupTitle"></h2>
+      <img id="popupImage" src="" alt="" style="width: 100%; border-radius: 10px; margin: 20px 0;">
+      <p id="popupDescription"></p>
+      <p id="popupPrice" style="color: #ffe27a; font-size: 1.4rem; font-weight: 600;"></p>
+      
+      <div class="size-guide">
+        <h3>Size Guide</h3>
+        <table class="size-table">
+          <tr>
+            <th>Volume</th>
+            <th>Duration</th>
+          </tr>
+          <tr>
+            <td>10-12ml</td>
+            <td>4-6 hours</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="payment-section" style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 15px; margin-top: 20px;">
+        <h3 style="color: #ffe27a; margin-bottom: 15px;">Payment Details</h3>
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+          <i class="fas fa-qrcode" style="font-size: 24px; color: #ffe27a;"></i>
+          <div>
+            <p style="color: #e0e0e0; margin-bottom: 5px;">UPI ID:</p>
+            <p style="color: #ffe27a; font-weight: 600; font-size: 1.1rem;">9034075510@fam</p>
+          </div>
+        </div>
+        <p style="color: #e0e0e0; font-size: 0.9rem; margin-top: 10px;">Scan QR code or use UPI ID to make payment</p>
+      </div>
+
+      <div class="gift-option">
+        <input type="checkbox" id="giftWrapping">
+        <label for="giftWrapping">Add Gift Wrapping (+₹50)</label>
+      </div>
+
+      <div class="share-buttons">
+        <a href="#" class="share-button" onclick="shareOnWhatsApp()">
+          <i class="fab fa-whatsapp"></i> Share
+        </a>
+        <a href="#" class="share-button" onclick="shareOnFacebook()">
+          <i class="fab fa-facebook"></i> Share
+        </a>
+        <a href="#" class="share-button" onclick="shareOnTwitter()">
+          <i class="fab fa-twitter"></i> Share
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <section class="testimonials">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonial">
+      <p>"Gulvaria's Jasmine Whisper is pure magic! I feel so confident every time I wear it."</p>
+      <span>— Ananya Mehta, Mumbai</span>
+    </div>
+    <div class="testimonial">
+      <p>"The packaging alone feels like unwrapping a treasure. And the scent lasts all day!"</p>
+      <span>— Rajiv Sharma, Delhi</span>
+    </div>
+    <div class="testimonial">
+      <p>"I've tried many luxury perfumes, but none compare to Gulvaria's Oud Royale. Simply divine."</p>
+      <span>— Priya Kapoor, Bangalore</span>
+    </div>
+  </section>
+
+  <section class="about">
+    <h2>About Us</h2>
+    <p>Gulvaria isn't just a fragrance brand — it's a lifestyle. Inspired by elegance, crafted with precision, and made for those who want to leave a lasting impression. Our scents are timeless, graceful, and truly unforgettable — because you deserve a perfume that speaks your essence.</p>
+    <div style="max-width: 400px; margin: 60px auto; padding: 30px; border-radius: 20px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); text-align: center; font-family: 'Georgia', serif; border: 1px solid rgba(255, 255, 255, 0.2);">
+      <h2 style="font-size: 2rem; margin-bottom: 15px; color: #d4af37;">Need Assistance?</h2>
+      <p style="font-size: 1.2rem; color: #ffffffcc; margin-bottom: 10px;">Call us directly</p>
+      <p style="font-size: 1.6rem; font-weight: bold; color: #ffffff;">📞 9034075510</p>
+      <a href="tel:9034075510" style="display: inline-block; margin-top: 20px; padding: 12px 30px; background: linear-gradient(to right, #d4af37, #b28c34); color: #fff; font-size: 1rem; font-weight: bold; border-radius: 50px; text-decoration: none; transition: transform 0.3s ease;">📲 Call Now</a>
+    </div>
+  </section>
+
+  <script>
+    window.onload = () => {
+      setTimeout(() => {
+        document.getElementById('splash').style.display = 'none';
+      }, 2500);
+    };
+
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const faqItem = question.parentElement;
+        faqItem.classList.toggle('active');
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      const backToTop = document.querySelector('.back-to-top');
+      if (window.scrollY > 300) {
+        backToTop.style.display = 'flex';
+      } else {
+        backToTop.style.display = 'none';
+      }
+    });
+
+    // Product Details Popup
+    function showProductDetails(title, image, description, price) {
+      document.getElementById('popupTitle').textContent = title;
+      document.getElementById('popupImage').src = image;
+      document.getElementById('popupDescription').textContent = description;
+      document.getElementById('popupPrice').textContent = price;
+      document.getElementById('productPopup').style.display = 'flex';
+    }
+
+    function closePopup() {
+      document.getElementById('productPopup').style.display = 'none';
+    }
+
+    // Share Functions
+    function shareOnWhatsApp() {
+      const text = "Check out this amazing perfume from Gulvaria!";
+      window.open(`https://wa.me/?text=${encodeURIComponent(text)}`);
+    }
+
+    function shareOnFacebook() {
+      const url = window.location.href;
+      window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`);
+    }
+
+    function shareOnTwitter() {
+      const text = "Check out this amazing perfume from Gulvaria!";
+      const url = window.location.href;
+      window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`);
+    }
+
+    // Add click event to products
+    document.querySelectorAll('.product').forEach(product => {
+      product.addEventListener('click', () => {
+        const title = product.querySelector('h3').textContent;
+        const image = product.querySelector('img').src;
+        const description = product.querySelector('p').textContent;
+        const price = product.querySelector('p:nth-child(4)').textContent;
+        showProductDetails(title, image, description, price);
+      });
+    });
+
+    function view3D(productName) {
+      // This function will be implemented when we add the 3D viewer
+      alert('3D view coming soon for ' + productName);
+    }
+
+    // Parallax effect
+    document.addEventListener('mousemove', (e) => {
+      const layers = document.querySelectorAll('.parallax-layer');
+      const x = (window.innerWidth - e.pageX * 2) / 100;
+      const y = (window.innerHeight - e.pageY * 2) / 100;
+      
+      layers.forEach(layer => {
+        const speed = layer.getAttribute('data-speed');
+        layer.style.transform = `translateX(${x * speed}px) translateY(${y * speed}px)`;
+      });
+    });
+
+    // Micro-interactions
+    document.querySelectorAll('.micro-interaction').forEach(element => {
+      element.addEventListener('click', function(e) {
+        const ripple = document.createElement('div');
+        ripple.classList.add('ripple');
+        this.appendChild(ripple);
+        
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        
+        ripple.style.width = ripple.style.height = `${size}px`;
+        ripple.style.left = `${e.clientX - rect.left - size/2}px`;
+        ripple.style.top = `${e.clientY - rect.top - size/2}px`;
+        
+        ripple.classList.add('active');
+        
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+    });
+
+    function filterProducts() {
+      const searchInput = document.querySelector('.search-input');
+      const products = document.querySelectorAll('.product');
+      const searchTerm = searchInput.value.toLowerCase();
+
+      products.forEach(product => {
+        const title = product.querySelector('h3').textContent.toLowerCase();
+        const description = product.querySelector('p').textContent.toLowerCase();
+        
+        if (title.includes(searchTerm) || description.includes(searchTerm)) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    }
+
+    function filterByType(type) {
+      const buttons = document.querySelectorAll('.filter-button');
+      buttons.forEach(button => button.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const products = document.querySelectorAll('.product');
+      products.forEach(product => {
+        const description = product.querySelector('p').textContent.toLowerCase();
+        if (type === 'all' || description.includes(type)) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    }
+
+    function filterByPrice(price) {
+      const buttons = document.querySelectorAll('.filter-button');
+      buttons.forEach(button => button.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const products = document.querySelectorAll('.product');
+      products.forEach(product => {
+        const priceText = product.querySelector('p:nth-child(4)').textContent;
+        const price = parseInt(priceText.replace('₹', ''));
+        
+        if (price <= 300) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    }
+
+    function filterByOccasion(occasion) {
+      const buttons = document.querySelectorAll('.filter-button');
+      buttons.forEach(button => button.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const products = document.querySelectorAll('.product');
+      products.forEach(product => {
+        const description = product.querySelector('p').textContent.toLowerCase();
+        if (description.includes(occasion)) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html> 
